@@ -1,0 +1,21 @@
+<div style="width: 100%; height: 25%;" class="fadeIn"> 
+    <div *ngIf="NewOrder"> 
+        <span>Type : </span>{{Type}}<br>
+        <span>PickUp Location : </span> <a target="_blank" href="http://maps.google.co.in/maps?q=loc:{{PickUp}}">Maps</a><br>
+        <span>Item :</span> {{Item}}<br>
+        <span>Address : </span> {{Address}}<br>
+        <input type="button"  (click)="CollectItem()" class="fadeIn fourth" value="Collect Item">
+        <div *ngIf="Delivery">
+            <span>Delivery Location : </span> <a target="_blank" href="http://maps.google.co.in/maps?q=loc:{{DeliveryLocation}}">Maps</a><br>            
+            <span>Address : </span> {{DeliveryAdd}}<br>
+            <span>COD :</span> {{COD}}<br>
+            <span>Amount to Collect :</span> {{AmountCollect}}<br>
+            <span>Amount Collected :</span> <input type="text" name="AmountCollected" required class="fadeIn second" [(ngModel)]="AmountCollected" placeholder="Amount to Collect"/>
+            <input type="button"  (click)="DeliveryComplete()" class="fadeIn fourth" value="Delivery Complete">
+        </div>
+    </div>
+    <div *ngIf="!NewOrder"> 
+        No new Orders
+    </div>
+
+</div>
